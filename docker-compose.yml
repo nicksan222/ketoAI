@@ -1,0 +1,66 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./backend:/usr/src/backend
+    environment:
+      - AIR_ENV=development
+      - MONGO_CONNECTION_STRING=mongodb://mongodb:27017
+      - MONGO_DB_NAME=ketoai
+      - AUTH0_DOMAIN=saturnsystem.eu.auth0.com
+      - AUTH0_AUDIENCE=9qAOBzFqw0QUT3nNHoLjAXmFmWOoo4Bf
+    command:
+      [
+        "./wait-for-it.sh",
+        "mongodb:27017",
+        "--",
+        "air",
+        "run",
+        "cmd/main.go",
+        "-b",
+        "0.0.0.0",
+      ]
+    depends_on:
+      - mongodb
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./frontend:/usr/src/frontend
+    environment:
+      - BACKEND_URL=http://backend:4000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  seed:
+    build:
+      context: ./seed
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./seed:/usr/src/seed
+    environment:
+      - MONGO_CONNECTION_STRING=mongodb://mongodb:27017
+      - MONGO_DB_NAME=ketoai
+    depends_on:
+      - mongodb
+    command: tail -f /dev/null
+
+  mongodb:
+    image: mongo:7-jammy
+    ports:
+      - "27017:27017"
+    volumes:
+      - dbdata:/data/db
+
+volumes:
+  dbdata:
