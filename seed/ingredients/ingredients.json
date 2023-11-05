@@ -8,7 +8,8 @@
       "calories": 250,
       "quantity_measurement": "g",
       "is_main_ingredient": true,
-      "category": "carne"
+      "category": "carne",
+      "_id": "6547d3c57e1c9b0f460f69df"
     },
     {
       "name": "Olio di oliva",
@@ -18,7 +19,8 @@
       "calories": 120,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f69e0"
     },
     {
       "name": "Avocado",
@@ -28,7 +30,8 @@
       "calories": 160,
       "quantity_measurement": "pcs",
       "is_main_ingredient": false,
-      "category": "frutta"
+      "category": "frutta",
+      "_id": "6547d3c57e1c9b0f460f69e1"
     },
     {
       "name": "Uova",
@@ -38,7 +41,8 @@
       "calories": 70,
       "quantity_measurement": "pcs",
       "is_main_ingredient": true,
-      "category": "uova"
+      "category": "uova",
+      "_id": "6547d3c57e1c9b0f460f69e2"
     },
     {
       "name": "Spinaci",
@@ -48,7 +52,8 @@
       "calories": 23,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "verdura"
+      "category": "verdura",
+      "_id": "6547d3c57e1c9b0f460f69e3"
     },
     {
       "name": "Noci",
@@ -58,7 +63,8 @@
       "calories": 200,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "frutta secca"
+      "category": "frutta secca",
+      "_id": "6547d3c57e1c9b0f460f69e4"
     },
     {
       "name": "Formaggio cheddar",
@@ -68,7 +74,8 @@
       "calories": 110,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "formaggio"
+      "category": "formaggio",
+      "_id": "6547d3c57e1c9b0f460f69e5"
     },
     {
       "name": "Bacon",
@@ -78,7 +85,8 @@
       "calories": 541,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "carne"
+      "category": "carne",
+      "_id": "6547d3c57e1c9b0f460f69e6"
     },
     {
       "name": "Burro",
@@ -88,7 +96,8 @@
       "calories": 717,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f69e7"
     },
     {
       "name": "Crema di cocco",
@@ -98,7 +107,8 @@
       "calories": 230,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f69e8"
     },
     {
       "name": "Salmone",
@@ -108,7 +118,8 @@
       "calories": 206,
       "quantity_measurement": "g",
       "is_main_ingredient": true,
-      "category": "pesce"
+      "category": "pesce",
+      "_id": "6547d3c57e1c9b0f460f69e9"
     },
     {
       "name": "Olio di cocco",
@@ -118,7 +129,8 @@
       "calories": 121,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f69ea"
     },
     {
       "name": "Semi di chia",
@@ -128,7 +140,8 @@
       "calories": 138,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "semi"
+      "category": "semi",
+      "_id": "6547d3c57e1c9b0f460f69eb"
     },
     {
       "name": "Asparagi",
@@ -138,7 +151,8 @@
       "calories": 20,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "verdura"
+      "category": "verdura",
+      "_id": "6547d3c57e1c9b0f460f69ec"
     },
     {
       "name": "Mandorle",
@@ -148,7 +162,8 @@
       "calories": 576,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "frutta secca"
+      "category": "frutta secca",
+      "_id": "6547d3c57e1c9b0f460f69ed"
     },
     {
       "name": "Broccoli",
@@ -158,7 +173,8 @@
       "calories": 55,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "verdura"
+      "category": "verdura",
+      "_id": "6547d3c57e1c9b0f460f69ee"
     },
     {
       "name": "Olive",
@@ -168,7 +184,8 @@
       "calories": 115,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "frutta"
+      "category": "frutta",
+      "_id": "6547d3c57e1c9b0f460f69ef"
     },
     {
       "name": "Cavolfiore",
@@ -178,7 +195,8 @@
       "calories": 25,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "verdura"
+      "category": "verdura",
+      "_id": "6547d3c57e1c9b0f460f69f0"
     },
     {
       "name": "Semi di lino",
@@ -188,7 +206,8 @@
       "calories": 74,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "semi"
+      "category": "semi",
+      "_id": "6547d3c57e1c9b0f460f69f1"
     },
     {
       "name": "Zucchine",
@@ -198,7 +217,8 @@
       "calories": 17,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "verdura"
+      "category": "verdura",
+      "_id": "6547d3c57e1c9b0f460f69f2"
     },
     {
       "name": "Pomodori",
@@ -208,7 +228,8 @@
       "calories": 18,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "frutta"
+      "category": "frutta",
+      "_id": "6547d3c57e1c9b0f460f69f3"
     },
     {
       "name": "Funghi",
@@ -218,7 +239,8 @@
       "calories": 22,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "verdura"
+      "category": "verdura",
+      "_id": "6547d3c57e1c9b0f460f69f4"
     },
     {
       "name": "Peperoni",
@@ -228,7 +250,8 @@
       "calories": 20,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "verdura"
+      "category": "verdura",
+      "_id": "6547d3c57e1c9b0f460f69f5"
     },
     {
       "name": "Cetrioli",
@@ -238,7 +261,8 @@
       "calories": 15,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "verdura"
+      "category": "verdura",
+      "_id": "6547d3c57e1c9b0f460f69f6"
     },
     {
       "name": "Gamberetti",
@@ -248,7 +272,8 @@
       "calories": 99,
       "quantity_measurement": "g",
       "is_main_ingredient": true,
-      "category": "pesce"
+      "category": "pesce",
+      "_id": "6547d3c57e1c9b0f460f69f7"
     },
     {
       "name": "Tonno",
@@ -258,7 +283,8 @@
       "calories": 132,
       "quantity_measurement": "g",
       "is_main_ingredient": true,
-      "category": "pesce"
+      "category": "pesce",
+      "_id": "6547d3c57e1c9b0f460f69f8"
     },
     {
       "name": "Merluzzo",
@@ -268,7 +294,8 @@
       "calories": 82,
       "quantity_measurement": "g",
       "is_main_ingredient": true,
-      "category": "pesce"
+      "category": "pesce",
+      "_id": "6547d3c57e1c9b0f460f69f9"
     },
     {
       "name": "Petto di pollo",
@@ -278,7 +305,8 @@
       "calories": 165,
       "quantity_measurement": "g",
       "is_main_ingredient": true,
-      "category": "carne"
+      "category": "carne",
+      "_id": "6547d3c57e1c9b0f460f69fa"
     },
     {
       "name": "Lattuga",
@@ -288,7 +316,8 @@
       "calories": 15,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "verdura"
+      "category": "verdura",
+      "_id": "6547d3c57e1c9b0f460f69fb"
     },
     {
       "name": "Cavolo",
@@ -298,7 +327,8 @@
       "calories": 43,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "verdura"
+      "category": "verdura",
+      "_id": "6547d3c57e1c9b0f460f69fc"
     },
     {
       "name": "Cacao in polvere",
@@ -308,7 +338,8 @@
       "calories": 228,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f69fd"
     },
     {
       "name": "Arachidi",
@@ -318,7 +349,8 @@
       "calories": 567,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "frutta secca"
+      "category": "frutta secca",
+      "_id": "6547d3c57e1c9b0f460f69fe"
     },
     {
       "name": "Nocciole",
@@ -328,7 +360,8 @@
       "calories": 628,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "frutta secca"
+      "category": "frutta secca",
+      "_id": "6547d3c57e1c9b0f460f69ff"
     },
     {
       "name": "Anacardi",
@@ -338,7 +371,8 @@
       "calories": 553,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "frutta secca"
+      "category": "frutta secca",
+      "_id": "6547d3c57e1c9b0f460f6a00"
     },
     {
       "name": "Macadamia",
@@ -348,7 +382,8 @@
       "calories": 718,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "frutta secca"
+      "category": "frutta secca",
+      "_id": "6547d3c57e1c9b0f460f6a01"
     },
     {
       "name": "Pistacchi",
@@ -358,7 +393,8 @@
       "calories": 562,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "frutta secca"
+      "category": "frutta secca",
+      "_id": "6547d3c57e1c9b0f460f6a02"
     },
     {
       "name": "Semi di girasole",
@@ -368,7 +404,8 @@
       "calories": 584,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "semi"
+      "category": "semi",
+      "_id": "6547d3c57e1c9b0f460f6a03"
     },
     {
       "name": "Semi di zucca",
@@ -378,7 +415,8 @@
       "calories": 559,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "semi"
+      "category": "semi",
+      "_id": "6547d3c57e1c9b0f460f6a04"
     },
     {
       "name": "Semi di sesamo",
@@ -388,7 +426,8 @@
       "calories": 573,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "semi"
+      "category": "semi",
+      "_id": "6547d3c57e1c9b0f460f6a05"
     },
     {
       "name": "Cozze",
@@ -398,7 +437,8 @@
       "calories": 86,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "pesce"
+      "category": "pesce",
+      "_id": "6547d3c57e1c9b0f460f6a06"
     },
     {
       "name": "Fegato di vitello",
@@ -408,7 +448,8 @@
       "calories": 134,
       "quantity_measurement": "g",
       "is_main_ingredient": true,
-      "category": "carne"
+      "category": "carne",
+      "_id": "6547d3c57e1c9b0f460f6a07"
     },
     {
       "name": "Cuore di manzo",
@@ -418,7 +459,8 @@
       "calories": 158,
       "quantity_measurement": "g",
       "is_main_ingredient": true,
-      "category": "carne"
+      "category": "carne",
+      "_id": "6547d3c57e1c9b0f460f6a08"
     },
     {
       "name": "Rene di maiale",
@@ -428,7 +470,8 @@
       "calories": 99,
       "quantity_measurement": "g",
       "is_main_ingredient": true,
-      "category": "carne"
+      "category": "carne",
+      "_id": "6547d3c57e1c9b0f460f6a09"
     },
     {
       "name": "Trottole",
@@ -438,7 +481,8 @@
       "calories": 332,
       "quantity_measurement": "g",
       "is_main_ingredient": true,
-      "category": "pasta"
+      "category": "pasta",
+      "_id": "6547d3c57e1c9b0f460f6a0a"
     },
     {
       "name": "Gelatina",
@@ -448,7 +492,8 @@
       "calories": 29,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a0b"
     },
     {
       "name": "Bresaola",
@@ -458,7 +503,8 @@
       "calories": 158,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "carne"
+      "category": "carne",
+      "_id": "6547d3c57e1c9b0f460f6a0c"
     },
     {
       "name": "Salame",
@@ -468,7 +514,8 @@
       "calories": 250,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "carne"
+      "category": "carne",
+      "_id": "6547d3c57e1c9b0f460f6a0d"
     },
     {
       "name": "Prosciutto crudo",
@@ -478,7 +525,8 @@
       "calories": 268,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "carne"
+      "category": "carne",
+      "_id": "6547d3c57e1c9b0f460f6a0e"
     },
     {
       "name": "Prosciutto cotto",
@@ -488,7 +536,8 @@
       "calories": 130,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "carne"
+      "category": "carne",
+      "_id": "6547d3c57e1c9b0f460f6a0f"
     },
     {
       "name": "Wurstel",
@@ -498,7 +547,8 @@
       "calories": 301,
       "quantity_measurement": "pcs",
       "is_main_ingredient": false,
-      "category": "carne"
+      "category": "carne",
+      "_id": "6547d3c57e1c9b0f460f6a10"
     },
     {
       "name": "Salsiccia",
@@ -508,7 +558,8 @@
       "calories": 310,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "carne"
+      "category": "carne",
+      "_id": "6547d3c57e1c9b0f460f6a11"
     },
     {
       "name": "Pancetta",
@@ -518,7 +569,8 @@
       "calories": 541,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "carne"
+      "category": "carne",
+      "_id": "6547d3c57e1c9b0f460f6a12"
     },
     {
       "name": "Verdure miste",
@@ -528,7 +580,8 @@
       "calories": 40,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "verdura"
+      "category": "verdura",
+      "_id": "6547d3c57e1c9b0f460f6a13"
     },
     {
       "name": "Sardine",
@@ -538,7 +591,8 @@
       "calories": 208,
       "quantity_measurement": "g",
       "is_main_ingredient": true,
-      "category": "pesce"
+      "category": "pesce",
+      "_id": "6547d3c57e1c9b0f460f6a14"
     },
     {
       "name": "Alici",
@@ -548,7 +602,8 @@
       "calories": 131,
       "quantity_measurement": "g",
       "is_main_ingredient": true,
-      "category": "pesce"
+      "category": "pesce",
+      "_id": "6547d3c57e1c9b0f460f6a15"
     },
     {
       "name": "Seppie",
@@ -558,7 +613,8 @@
       "calories": 79,
       "quantity_measurement": "g",
       "is_main_ingredient": true,
-      "category": "pesce"
+      "category": "pesce",
+      "_id": "6547d3c57e1c9b0f460f6a16"
     },
     {
       "name": "Calamari",
@@ -568,7 +624,8 @@
       "calories": 80,
       "quantity_measurement": "g",
       "is_main_ingredient": true,
-      "category": "pesce"
+      "category": "pesce",
+      "_id": "6547d3c57e1c9b0f460f6a17"
     },
     {
       "name": "Polpo",
@@ -578,7 +635,8 @@
       "calories": 164,
       "quantity_measurement": "g",
       "is_main_ingredient": true,
-      "category": "pesce"
+      "category": "pesce",
+      "_id": "6547d3c57e1c9b0f460f6a18"
     },
     {
       "name": "Frittata",
@@ -588,7 +646,8 @@
       "calories": 90,
       "quantity_measurement": "pcs",
       "is_main_ingredient": false,
-      "category": "uova"
+      "category": "uova",
+      "_id": "6547d3c57e1c9b0f460f6a19"
     },
     {
       "name": "Tartare di carne",
@@ -598,7 +657,8 @@
       "calories": 239,
       "quantity_measurement": "g",
       "is_main_ingredient": true,
-      "category": "carne"
+      "category": "carne",
+      "_id": "6547d3c57e1c9b0f460f6a1a"
     },
     {
       "name": "Panna",
@@ -608,7 +668,8 @@
       "calories": 292,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a1b"
     },
     {
       "name": "Formaggio di capra",
@@ -618,7 +679,8 @@
       "calories": 364,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "formaggio"
+      "category": "formaggio",
+      "_id": "6547d3c57e1c9b0f460f6a1c"
     },
     {
       "name": "Carpaccio di manzo",
@@ -628,7 +690,8 @@
       "calories": 146,
       "quantity_measurement": "g",
       "is_main_ingredient": true,
-      "category": "carne"
+      "category": "carne",
+      "_id": "6547d3c57e1c9b0f460f6a1d"
     },
     {
       "name": "Formaggio feta",
@@ -638,7 +701,8 @@
       "calories": 264,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "formaggio"
+      "category": "formaggio",
+      "_id": "6547d3c57e1c9b0f460f6a1e"
     },
     {
       "name": "Aceto balsamico",
@@ -648,7 +712,8 @@
       "calories": 88,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a1f"
     },
     {
       "name": "Panna acida",
@@ -658,7 +723,8 @@
       "calories": 193,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a20"
     },
     {
       "name": "Crema di formaggio",
@@ -668,7 +734,8 @@
       "calories": 342,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "formaggio"
+      "category": "formaggio",
+      "_id": "6547d3c57e1c9b0f460f6a21"
     },
     {
       "name": "Maionese",
@@ -678,7 +745,8 @@
       "calories": 680,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a22"
     },
     {
       "name": "Salsa di soia",
@@ -688,7 +756,8 @@
       "calories": 53,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a23"
     },
     {
       "name": "Salsa Worcestershire",
@@ -698,7 +767,8 @@
       "calories": 103,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a24"
     },
     {
       "name": "Salsa di pomodoro",
@@ -708,7 +778,8 @@
       "calories": 50,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a25"
     },
     {
       "name": "Salsa alfredo",
@@ -718,7 +789,8 @@
       "calories": 290,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a26"
     },
     {
       "name": "Salsa olandese",
@@ -728,7 +800,8 @@
       "calories": 567,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a27"
     },
     {
       "name": "Salsa barbecue",
@@ -738,7 +811,8 @@
       "calories": 117,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a28"
     },
     {
       "name": "Senape",
@@ -748,7 +822,8 @@
       "calories": 66,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a29"
     },
     {
       "name": "Ketchup",
@@ -758,7 +833,8 @@
       "calories": 103,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a2a"
     },
     {
       "name": "Salsa ranch",
@@ -768,7 +844,8 @@
       "calories": 204,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a2b"
     },
     {
       "name": "Formaggio roquefort",
@@ -778,7 +855,8 @@
       "calories": 369,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "formaggio"
+      "category": "formaggio",
+      "_id": "6547d3c57e1c9b0f460f6a2c"
     },
     {
       "name": "Gorgonzola",
@@ -788,7 +866,8 @@
       "calories": 353,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "formaggio"
+      "category": "formaggio",
+      "_id": "6547d3c57e1c9b0f460f6a2d"
     },
     {
       "name": "Formaggio bleu",
@@ -798,7 +877,8 @@
       "calories": 354,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "formaggio"
+      "category": "formaggio",
+      "_id": "6547d3c57e1c9b0f460f6a2e"
     },
     {
       "name": "Parmigiano reggiano",
@@ -808,7 +888,8 @@
       "calories": 392,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "formaggio"
+      "category": "formaggio",
+      "_id": "6547d3c57e1c9b0f460f6a2f"
     },
     {
       "name": "Formaggio asiago",
@@ -818,7 +899,8 @@
       "calories": 381,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "formaggio"
+      "category": "formaggio",
+      "_id": "6547d3c57e1c9b0f460f6a30"
     },
     {
       "name": "Formaggio pecorino romano",
@@ -828,7 +910,8 @@
       "calories": 402,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "formaggio"
+      "category": "formaggio",
+      "_id": "6547d3c57e1c9b0f460f6a31"
     },
     {
       "name": "Formaggio svizzero",
@@ -838,7 +921,8 @@
       "calories": 378,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "formaggio"
+      "category": "formaggio",
+      "_id": "6547d3c57e1c9b0f460f6a32"
     },
     {
       "name": "Formaggio gouda",
@@ -848,7 +932,8 @@
       "calories": 356,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "formaggio"
+      "category": "formaggio",
+      "_id": "6547d3c57e1c9b0f460f6a33"
     },
     {
       "name": "Scamorza",
@@ -858,7 +943,8 @@
       "calories": 310,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "formaggio"
+      "category": "formaggio",
+      "_id": "6547d3c57e1c9b0f460f6a34"
     },
     {
       "name": "Mozzarella",
@@ -868,17 +954,19 @@
       "calories": 280,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "formaggio"
+      "category": "formaggio",
+      "_id": "6547d3c57e1c9b0f460f6a35"
     },
     {
       "name": "Ricotta",
-      "carbs": 3.0,
+      "carbs": 3,
       "fat": 13,
       "protein": 11,
       "calories": 174,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "formaggio"
+      "category": "formaggio",
+      "_id": "6547d3c57e1c9b0f460f6a36"
     },
     {
       "name": "Mascarpone",
@@ -888,7 +976,8 @@
       "calories": 455,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "formaggio"
+      "category": "formaggio",
+      "_id": "6547d3c57e1c9b0f460f6a37"
     },
     {
       "name": "Caffè",
@@ -898,7 +987,8 @@
       "calories": 0,
       "quantity_measurement": "L",
       "is_main_ingredient": false,
-      "category": "bevande"
+      "category": "bevande",
+      "_id": "6547d3c57e1c9b0f460f6a38"
     },
     {
       "name": "Sale",
@@ -908,7 +998,8 @@
       "calories": 0,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a39"
     },
     {
       "name": "Pepe",
@@ -918,7 +1009,8 @@
       "calories": 251,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a3a"
     },
     {
       "name": "Aglio",
@@ -928,7 +1020,8 @@
       "calories": 149,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a3b"
     },
     {
       "name": "Cipolla",
@@ -938,7 +1031,8 @@
       "calories": 40,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a3c"
     },
     {
       "name": "Zenzero",
@@ -948,7 +1042,8 @@
       "calories": 80,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a3d"
     },
     {
       "name": "Curcuma",
@@ -958,7 +1053,8 @@
       "calories": 354,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a3e"
     },
     {
       "name": "Cannella",
@@ -968,7 +1064,8 @@
       "calories": 247,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a3f"
     },
     {
       "name": "Nutmeg",
@@ -978,7 +1075,8 @@
       "calories": 525,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a40"
     },
     {
       "name": "Paprika",
@@ -988,7 +1086,8 @@
       "calories": 282,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a41"
     },
     {
       "name": "Peperoncino",
@@ -998,7 +1097,8 @@
       "calories": 40,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a42"
     },
     {
       "name": "Erba cipollina",
@@ -1008,7 +1108,8 @@
       "calories": 30,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a43"
     },
     {
       "name": "Prezzemolo",
@@ -1018,7 +1119,8 @@
       "calories": 36,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a44"
     },
     {
       "name": "Basilico",
@@ -1028,7 +1130,8 @@
       "calories": 23,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a45"
     },
     {
       "name": "Coriandolo",
@@ -1038,7 +1141,8 @@
       "calories": 23,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a46"
     },
     {
       "name": "Menta",
@@ -1048,7 +1152,8 @@
       "calories": 70,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a47"
     },
     {
       "name": "Timiamo",
@@ -1058,7 +1163,8 @@
       "calories": 101,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a48"
     },
     {
       "name": "Rosmarino",
@@ -1068,7 +1174,8 @@
       "calories": 131,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a49"
     },
     {
       "name": "Origano",
@@ -1078,7 +1185,8 @@
       "calories": 265,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a4a"
     },
     {
       "name": "Sage",
@@ -1088,7 +1196,8 @@
       "calories": 315,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a4b"
     },
     {
       "name": "Alloro",
@@ -1098,7 +1207,8 @@
       "calories": 313,
       "quantity_measurement": "g",
       "is_main_ingredient": false,
-      "category": "condimento"
+      "category": "condimento",
+      "_id": "6547d3c57e1c9b0f460f6a4c"
     }
   ]
 }

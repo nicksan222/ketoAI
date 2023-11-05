@@ -24,16 +24,6 @@ test-backend:
 kill: ## Stop and remove the Docker containers
 	@docker compose down
 
-generate: ## Run go generate command inside the app container
-	@docker compose run --rm backend go generate ./...
-	
-
-new-model: ## Create a new model. Usage: make new-model model=ModelName
-	@docker compose run --rm app go run -mod=mod entgo.io/ent/cmd/ent new $(model)
-
-schema:
-	@docker compose run --rm app go run -mod=mod ariga.io/entviz ./ent/schema
-
 db-shell:
 	@docker-compose exec postgres psql -U root -d ketoai
 
@@ -51,3 +41,6 @@ logs-seed: ## Show and follow the logs for the seed container
 
 logs-mongodb: ## Show and follow the logs for the mongodb container
 	@docker-compose logs -f mongodb
+
+insert-ingredients:
+	

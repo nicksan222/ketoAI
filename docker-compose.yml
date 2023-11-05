@@ -42,19 +42,6 @@ services:
     depends_on:
       - backend
 
-  seed:
-    build:
-      context: ./seed
-      dockerfile: Dockerfile.dev
-    volumes:
-      - ./seed:/usr/src/seed
-    environment:
-      - MONGO_CONNECTION_STRING=mongodb://mongodb:27017
-      - MONGO_DB_NAME=ketoai
-    depends_on:
-      - mongodb
-    command: tail -f /dev/null
-
   mongodb:
     image: mongo:7-jammy
     ports:
