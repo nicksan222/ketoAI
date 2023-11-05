@@ -1,5 +1,4 @@
-{
-  "ingredients": [
+[
     {
       "name": "Carne di manzo",
       "carbs": 0,
@@ -1211,4 +1210,3 @@
       "_id": "6547d3c57e1c9b0f460f6a4c"
     }
   ]
-}

@@ -16,7 +16,7 @@ build: ## Build the Docker containers
 	@docker compose build
 
 dev: ## Start the Docker containers in the background
-	@docker compose up -d
+	@docker compose up -d --remove-orphans
 
 test-backend:
 	@docker compose run --rm backend go test ./...
@@ -43,4 +43,3 @@ logs-mongodb: ## Show and follow the logs for the mongodb container
 	@docker-compose logs -f mongodb
 
 insert-ingredients:
-	

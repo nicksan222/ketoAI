@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Define variables
-DATABASE_NAME='your_db_name'
-COLLECTION_NAME='your_collection_name'
-JSON_FILE_PATH='/path/to/your/json_file.json'
+DATABASE_NAME=ketoai
+COLLECTION_NAME='ingredients'
+JSON_FILE_PATH=./ingredients.json
 
 # Command to import new data from a JSON file into the specified collection
-mongoimport --db $DATABASE_NAME --collection $COLLECTION_NAME --file $JSON_FILE_PATH --jsonArray
+../utils/mongoimport --db $DATABASE_NAME --collection $COLLECTION_NAME --file $JSON_FILE_PATH --jsonArray
 
 echo "Data has been inserted into the database."
