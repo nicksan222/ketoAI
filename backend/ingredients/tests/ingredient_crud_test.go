@@ -50,12 +50,12 @@ func TestParseCreateIngredientRequest(t *testing.T) {
 
 func TestListIngredientsRequest(t *testing.T) {
 	// Test valid request
-	validRequest := ingredients.GetIngredientsRequest{
+	validRequest := ingredients.ListIngredientsRequest{
 		BeginsWith: "",
 		EndsWith:   "",
 		Limit:      10,
 	}
-	ingredients, err := ingredients.GetIngredients(validRequest)
+	ingredients, err := ingredients.ListIngredients(validRequest)
 	assert.NoError(t, err, "Failed to list ingredients")
 	assert.NotNil(t, ingredients, "Ingredients list is nil")
 

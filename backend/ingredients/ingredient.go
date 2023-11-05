@@ -20,9 +20,10 @@ type Ingredient struct {
 	Name               string             `json:"name" bson:"name"`
 	QuanityMeasurement string             `json:"quantity_measurement" bson:"quantity_measurement"`
 
-	Fat     float64 `json:"fat" bson:"fat"`
-	Protein float64 `json:"protein" bson:"protein"`
-	Carbs   float64 `json:"carbs" bson:"carbs"`
+	Fat              float64 `json:"fat" bson:"fat"`
+	Protein          float64 `json:"protein" bson:"protein"`
+	Carbs            float64 `json:"carbs" bson:"carbs"`
+	IsMainIngredient bool    `json:"is_main_ingredient" bson:"is_main_ingredient"` // Main ingredients are used in the calculation of the macros of a recipe
 
 	Approved bool `json:"approved" bson:"approved"` // Users can insert custom ingredients, but must be approved first by admins
 }

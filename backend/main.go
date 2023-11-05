@@ -1,58 +1,81 @@
 package main
 
 import (
-	"crypto/sha256"
-	"crypto/subtle"
-	"log"
-	"os"
+	"fmt"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/adaptor"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/helmet"
-	"github.com/gofiber/fiber/v2/middleware/keyauth"
 	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/nicksan222/ketoai/config"
 	"github.com/nicksan222/ketoai/ingredients"
-	"github.com/nicksan222/ketoai/middleware"
+	auth "github.com/nicksan222/ketoai/middleware"
+	"github.com/nicksan222/ketoai/pkg/shutdown"
 )
-
-var (
-	apiKey = os.Getenv("API_KEY")
-)
-
-func validateAPIKey(c *fiber.Ctx, key string) (bool, error) {
-	hashedAPIKey := sha256.Sum256([]byte(apiKey))
-	hashedKey := sha256.Sum256([]byte(key))
-
-	if subtle.ConstantTimeCompare(hashedAPIKey[:], hashedKey[:]) == 1 {
-		return true, nil
-	}
-	return false, keyauth.ErrMissingOrMalformedAPIKey
-}
 
 func main() {
+	// load config
+	env, err := config.LoadConfig()
+	if err != nil {
+		panic(err)
+	}
+
+	cleanup, err := run(env)
+
+	defer cleanup()
+
+	if err != nil {
+		panic(err)
+	}
+
+	// ensure the server is shutdown gracefully & app runs
+	shutdown.Gracefully()
+}
+
+func run(env config.EnvVars) (func(), error) {
+	app := buildServer(env)
+
+	// start the server
+	go func() {
+		app.Listen(":" + env.PORT)
+	}()
+
+	// return a function to close the server and database
+	return func() {
+		app.Shutdown()
+	}, nil
+}
+
+func buildServer(env config.EnvVars) *fiber.App {
 	app := fiber.New()
 
 	app.Use(cors.New())
 	app.Use(logger.New())
 	app.Use(helmet.New())
 
+	app.Use(func(c *fiber.Ctx) error {
+		fmt.Printf("Requested path: %s\n", c.OriginalURL())
+		return c.Next()
+	})
+
 	/**
 	Using a middleware function to check if there is an API key in the request header
 	*/
 
-	app.Use(adaptor.HTTPMiddleware(middleware.EnsureValidToken()))
+	authMiddleware := auth.NewAuthMiddleware(env)
+	app.Use(authMiddleware.ValidateToken)
 
 	/**
-	 * @api {get} /api/v1/ingredients/:ingredient_id Get Ingredient
+	 * @api {get} /ingredients/:ingredient_id Get Ingredient
 	 * @apiName GetIngredient
 	 * @apiGroup Ingredients
 	 * @apiVersion 1.0.0
 	 */
-	app.Get("/api/v1/ingredients/:ingredient_id", ingredients.IngredientGetHandler)
-	app.Delete("/api/v1/ingredients/:ingredient_id", ingredients.IngredientDeleteHandler)
+	app.Get("/ingredients/:ingredient_id", ingredients.IngredientGetHandler)
+	app.Get("/ingredients", ingredients.IngredientsListHandler)
+	app.Post("/ingredients/preferences", ingredients.IngredientsSetPreferencesHandler)
+	app.Delete("/ingredients/preferences/:ingredient_id", ingredients.IngredientsDeletePreferencesHandler)
+	app.Get("/ingredients/preferences/list", ingredients.IngredientsGetPreferencesHandler)
 
-	app.Get("/api/v1/ingredients", ingredients.IngredientsGetHandler)
-
-	log.Fatal(app.Listen(":4000"))
+	return app
 }

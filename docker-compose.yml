@@ -15,6 +15,7 @@ services:
       - MONGO_DB_NAME=ketoai
       - AUTH0_DOMAIN=saturnsystem.eu.auth0.com
       - AUTH0_AUDIENCE=9qAOBzFqw0QUT3nNHoLjAXmFmWOoo4Bf
+      - PORT=4000
     command:
       [
         "./wait-for-it.sh",
@@ -36,7 +37,7 @@ services:
     volumes:
       - ./frontend:/usr/src/frontend
     environment:
-      - BACKEND_URL=http://backend:4000
+      - NEXT_PUBLIC_BACKEND_URL=http://backend:4000
     ports:
       - "3000:3000"
     depends_on:

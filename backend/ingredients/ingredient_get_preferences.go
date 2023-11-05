@@ -2,8 +2,8 @@ package ingredients
 
 import (
 	"context"
-	"encoding/json"
 
+	"github.com/gofiber/fiber/v2"
 	"github.com/nicksan222/ketoai/db"
 	"github.com/nicksan222/ketoai/preferences"
 	"go.mongodb.org/mongo-driver/bson"
@@ -15,19 +15,7 @@ type GetIngredientPreferencesRequest struct {
 
 type GetIngredientPreferencesResponse struct {
 	UserID        string   `json:"user_id"`
-	IngredientIds []string `json:"ingredient_ids"`
-}
-
-func ParseGetIngredientPreferencesRequest(
-	body []byte,
-) (GetIngredientPreferencesRequest, error) {
-	var request GetIngredientPreferencesRequest
-	err := json.Unmarshal(body, &request)
-	if err != nil {
-		return GetIngredientPreferencesRequest{}, err
-	}
-
-	return request, nil
+	IngredientIds []string `json:"ingredients"`
 }
 
 func GetIngredientPreferences(
@@ -47,4 +35,21 @@ func GetIngredientPreferences(
 		UserID:        result.UserID,
 		IngredientIds: result.Ingredients,
 	}, nil
+}
+
+func IngredientsGetPreferencesHandler(c *fiber.Ctx) error {
+	userId := c.Locals("user_id").(string)
+
+	// Fetching the ingredient
+	ingredients, err := GetIngredientPreferences(GetIngredientPreferencesRequest{
+		UserId: userId,
+	})
+
+	if err != nil {
+		return c.Status(404).JSON(fiber.Map{
+			"error": err.Error(),
+		})
+	}
+
+	return c.JSON(ingredients)
 }

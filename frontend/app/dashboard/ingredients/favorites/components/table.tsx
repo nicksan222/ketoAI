@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
   TableCaption,
   TableHeader,
@@ -10,12 +11,14 @@ import {
 import { Ingredient } from "@/types/ingredient";
 
 import { FiArrowUp } from "react-icons/fi";
+import LikeIngredientButton from "./likeButton/button";
 
 interface Props {
   ingredients: Ingredient[];
+  favoriteIngredients: string[];
 }
 
-const IngredientsTable = ({ ingredients }: Props) => {
+const IngredientsTable = ({ ingredients, favoriteIngredients }: Props) => {
   // Calculating medians for each macronutrient
   const carbsMedian =
     ingredients.reduce((acc, ingredient) => {
@@ -34,17 +37,17 @@ const IngredientsTable = ({ ingredients }: Props) => {
 
   const isHighCarb = (ingredient: Ingredient) => {
     // Is this higher than the median? (10 g of difference)
-    return ingredient.carbs > carbsMedian + 10;
+    return ingredient.carbs > carbsMedian + 5;
   };
 
   const isHighFat = (ingredient: Ingredient) => {
     // Is this higher than the median? (10 g of difference)
-    return ingredient.fat > fatMedian + 10;
+    return ingredient.fat > fatMedian + 5;
   };
 
   const isHighProtein = (ingredient: Ingredient) => {
     // Is this higher than the median? (10 g of difference)
-    return ingredient.protein > proteinMedian + 10;
+    return ingredient.protein > proteinMedian + 5;
   };
 
   return (
@@ -55,16 +58,24 @@ const IngredientsTable = ({ ingredients }: Props) => {
       <TableHeader>
         <TableRow>
           <TableHead>Ingrediente</TableHead>
+          <TableHead>Preferiti</TableHead>
           <TableHead>Carboidrati</TableHead>
           <TableHead>Grassi</TableHead>
           <TableHead>Proteine</TableHead>
-          <TableHead className="text-right">Preferiti</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {ingredients.map((ingredient) => (
           <TableRow key={ingredient.id}>
             <TableCell className="font-medium">{ingredient.name}</TableCell>
+            <TableCell>
+              <LikeIngredientButton
+                ingredient={ingredient}
+                liked={(favoriteIngredients ?? []).includes(
+                  ingredient.id ?? ""
+                )}
+              />
+            </TableCell>
             <TableCell>
               <div className="flex flex-row">
                 {ingredient.carbs} g
@@ -89,7 +100,6 @@ const IngredientsTable = ({ ingredients }: Props) => {
                 )}
               </div>
             </TableCell>
-            <TableCell>$250.00</TableCell>
           </TableRow>
         ))}
       </TableBody>

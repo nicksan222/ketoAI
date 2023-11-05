@@ -6,4 +6,5 @@ export interface Ingredient {
   protein: number;
   carbs: number;
   approved: boolean;
+  is_main_ingredient: boolean;
 }

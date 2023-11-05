@@ -10,24 +10,24 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-type GetIngredientsRequest struct {
+type ListIngredientsRequest struct {
 	BeginsWith string `json:"begins_with"`
 	EndsWith   string `json:"ends_with"`
 	Limit      int64  `json:"limit"`
 }
 
 // Response for fetching the list of ingredients
-type GetIngredientsResponse struct {
+type ListIngredientsResponse struct {
 	Ingredients []Ingredient `json:"ingredients"`
 }
 
 // Retrieves a list of all ingredients from the database
-func GetIngredients(
-	request GetIngredientsRequest,
-) (GetIngredientsResponse, error) {
+func ListIngredients(
+	request ListIngredientsRequest,
+) (ListIngredientsResponse, error) {
 	conn, err := db.GetDBClient()
 	if err != nil {
-		return GetIngredientsResponse{}, err
+		return ListIngredientsResponse{}, err
 	}
 
 	filter := bson.D{
@@ -42,22 +42,22 @@ func GetIngredients(
 
 	cursor, err := conn.Collection(INGREDIENT_COLLECTION).Find(context.TODO(), filter, findOptions)
 	if err != nil {
-		return GetIngredientsResponse{}, err
+		return ListIngredientsResponse{}, err
 	}
 
 	var ingredients []Ingredient
 	if err := cursor.All(context.TODO(), &ingredients); err != nil {
-		return GetIngredientsResponse{}, err
+		return ListIngredientsResponse{}, err
 	}
 
 	if ingredients == nil {
 		ingredients = []Ingredient{} // Initialize to empty slice instead of nil
 	}
 
-	return GetIngredientsResponse{Ingredients: ingredients}, nil
+	return ListIngredientsResponse{Ingredients: ingredients}, nil
 }
 
-func IngredientsGetHandler(c *fiber.Ctx) error {
+func IngredientsListHandler(c *fiber.Ctx) error {
 	beginsWith := c.Query("begins_with", "")
 	endsWith := c.Query("ends_with", "")
 	limit, err := strconv.ParseInt(c.Query("limit", "-1"), 10, 64)
@@ -69,7 +69,7 @@ func IngredientsGetHandler(c *fiber.Ctx) error {
 	}
 
 	// Fetching the ingredient
-	ingredient, err := GetIngredients(GetIngredientsRequest{
+	ingredient, err := ListIngredients(ListIngredientsRequest{
 		BeginsWith: beginsWith,
 		EndsWith:   endsWith,
 		Limit:      limit,
