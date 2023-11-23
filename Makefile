@@ -6,6 +6,7 @@ help: ## Display this help message
 	@echo "  build       Build the Docker containers."
 	@echo "  dev         Start the Docker containers in the background."
 	@echo "  test-backend        Run the tests. in backend"
+	@echo "  test-frontend        Run the tests. in frontend"
 	@echo "  kill        Stop and remove the Docker containers."
 	@echo "  generate    Run go generate command inside the app container."
 	@echo "  new-model   Create a new model. Usage: make new-model model=ModelName"
@@ -41,5 +42,3 @@ logs-seed: ## Show and follow the logs for the seed container
 
 logs-mongodb: ## Show and follow the logs for the mongodb container
 	@docker-compose logs -f mongodb
-
-insert-ingredients:

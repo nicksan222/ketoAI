@@ -9,28 +9,8 @@ import { fetcher } from "@/utils/fetcher";
 import { NextRequest } from "next/server";
 import IngredientsTable from "./components/table";
 import { Ingredient } from "@/types/ingredient";
-
-const fetchIngredients = async () => {
-  const ingredients: Ingredient[] = (
-    await fetcher({
-      url: "/ingredients",
-    })
-  )["ingredients"];
-
-  return ingredients ?? [];
-};
-
-const fetchFavoriteIngredients = async () => {
-  const ingredients: string[] = (
-    await fetcher({
-      url: "/ingredients/preferences/list",
-    })
-  )["ingredients"];
-
-  console.log(ingredients);
-
-  return ingredients ?? [];
-};
+import { fetchIngredients } from "@/hooks/ingredients/list";
+import { fetchFavoriteIngredients } from "@/hooks/ingredients/getFavorites";
 
 export default async function Page() {
   const [ingredients, favoriteIngredients] = await Promise.all([

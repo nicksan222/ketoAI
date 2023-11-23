@@ -1,7 +1,7 @@
 export interface Ingredient {
-  id?: string;
+  id: string;
   name: string;
-  quantityMeasurement: "g" | "L" | "pcs" | "qb";
+  quantity_measurement: "g" | "L" | "pcs" | "qb";
   fat: number;
   protein: number;
   carbs: number;
