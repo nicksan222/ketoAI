@@ -24,10 +24,6 @@ export default function IngredientsMacros() {
   const { totalCarbs, totalProtein, totalFat, totalCalories } =
     useNewRecipeStore();
 
-  useEffect(() => {
-    console.log(totalCarbs, totalProtein, totalFat, totalCalories);
-  }, [totalCarbs, totalProtein, totalFat, totalCalories]);
-
   return (
     <Card className="col-span-3">
       <CardHeader>
@@ -37,7 +33,7 @@ export default function IngredientsMacros() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <ResponsiveContainer width={400} height={300}>
+        <ResponsiveContainer width={"100%"} height={300}>
           <BarChart
             data={[
               {
@@ -66,11 +62,14 @@ export default function IngredientsMacros() {
               fontSize={12}
               tickLine={false}
               axisLine={false}
-              tickFormatter={(value) => `${value}`}
+              tickFormatter={(value) => `${value} g`}
             />
             <Bar dataKey="total" fill="#adfa1d" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
+
+        <h2 className="text-xl mt-8">Calorie totali</h2>
+        <p className="text-2xl font-semibold">{totalCalories} kcal</p>
       </CardContent>
     </Card>
   );

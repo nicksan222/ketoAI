@@ -16,10 +16,6 @@ import { Button } from "@/components/ui/button";
 export default function IngredientList() {
   const { ingredients, removeIngredient } = useNewRecipeStore();
 
-  useEffect(() => {
-    console.log(ingredients);
-  }, [ingredients]);
-
   return (
     <Card className="col-span-3">
       <CardHeader>
@@ -29,7 +25,7 @@ export default function IngredientList() {
       <CardContent>
         {ingredients.map((ingredient, index) => (
           <div
-            className="flex items-center my-2"
+            className="flex items-center mb-4"
             key={ingredient.ingredient.id}
           >
             <Avatar className="h-9 w-9">

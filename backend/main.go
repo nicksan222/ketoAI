@@ -9,8 +9,12 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/nicksan222/ketoai/config"
 	"github.com/nicksan222/ketoai/ingredients"
+	ingredients_get "github.com/nicksan222/ketoai/ingredients/get"
+	ingredients_list "github.com/nicksan222/ketoai/ingredients/list"
+	ingredients_setpreferences "github.com/nicksan222/ketoai/ingredients/set_preferences"
 	auth "github.com/nicksan222/ketoai/middleware"
 	"github.com/nicksan222/ketoai/pkg/shutdown"
+	"github.com/nicksan222/ketoai/recipes"
 )
 
 func main() {
@@ -65,17 +69,14 @@ func buildServer(env config.EnvVars) *fiber.App {
 	authMiddleware := auth.NewAuthMiddleware(env)
 	app.Use(authMiddleware.ValidateToken)
 
-	/**
-	 * @api {get} /ingredients/:ingredient_id Get Ingredient
-	 * @apiName GetIngredient
-	 * @apiGroup Ingredients
-	 * @apiVersion 1.0.0
-	 */
-	app.Get("/ingredients/:ingredient_id", ingredients.IngredientGetHandler)
-	app.Get("/ingredients", ingredients.IngredientsListHandler)
-	app.Post("/ingredients/preferences", ingredients.IngredientsSetPreferencesHandler)
+	app.Get("/ingredients/:ingredient_id", ingredients_get.IngredientGetRoute)
+	app.Get("/ingredients", ingredients_list.IngredientsListRoute)
+	app.Post("/ingredients/preferences", ingredients_setpreferences.IngredientsSetPreferencesRoute)
 	app.Delete("/ingredients/preferences/:ingredient_id", ingredients.IngredientsDeletePreferencesHandler)
 	app.Get("/ingredients/preferences/list", ingredients.IngredientsGetPreferencesHandler)
+
+	app.Get("/recipes", recipes.ListRecipesToApproveForUserHandler)
+	app.Post("/recipes", recipes.CreateRecipeHandler)
 
 	return app
 }

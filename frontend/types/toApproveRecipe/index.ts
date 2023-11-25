@@ -1,15 +1,15 @@
 import { Ingredient } from "../ingredient";
 
-export interface RecipeIngredient {
+export interface ToApproveRecipeIngredient {
   ingredient: Ingredient;
   quantity: number;
   unit: string;
 }
 
-export interface NewRecipeInterface {
+export interface ToApproveRecipeInterface {
   _id?: string;
   title: string;
-  ingredients: RecipeIngredient[];
+  ingredients: ToApproveRecipeIngredient[];
   steps: string[];
   tags: string[];
   description?: string;

@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 
-import { FiHeart, FiList, FiPlusCircle, FiShare, FiUser } from "react-icons/fi";
+import { FiClock, FiHeart, FiList, FiPlusCircle, FiShare, FiUser } from "react-icons/fi";
 import SidebarSection from "./SidebarSection";
 import SidebarButton from "./SidebarButton";
 
@@ -56,11 +56,6 @@ export function Sidebar({ className, children }: Props) {
                 text="Scopri"
                 goTo="/recipes/discover"
               />
-              <SidebarButton
-                icon={<FiShare />}
-                text="Carica nuova"
-                goTo="/recipes/new"
-              />
             </SidebarSection>
             <SidebarSection text="Ingredienti">
               <SidebarButton
@@ -70,7 +65,8 @@ export function Sidebar({ className, children }: Props) {
               />
             </SidebarSection>
             <SidebarSection text="Crea">
-              <SidebarButton icon={<FiPlusCircle />} text="Crea una ricetta" />
+              <SidebarButton icon={<FiPlusCircle />} text="Ricetta" goTo="/recipes/new"/>
+              <SidebarButton icon={<FiClock />} text="In approvazione" goTo="/recipes/waiting" />
             </SidebarSection>
             <SidebarSection text="Impostazioni">
               <SidebarButton icon={<FiUser />} text="Account" />

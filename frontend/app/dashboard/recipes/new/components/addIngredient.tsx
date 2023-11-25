@@ -68,6 +68,7 @@ export default function AddIngredientSelector({ ingredients }: Props) {
         </Select>
 
         <Input
+          className="md:mt-0 mt-4"
           placeholder="0"
           type="number"
           value={quantity}
@@ -75,11 +76,11 @@ export default function AddIngredientSelector({ ingredients }: Props) {
         />
 
         <Button
+        className="md:mt-0 mt-4"
           onClick={() => {
             if (ingredient) {
               addIngredient(ingredient, quantity);
 
-              setIngredient(undefined);
               setQuantity(0);
             } else {
               toast({

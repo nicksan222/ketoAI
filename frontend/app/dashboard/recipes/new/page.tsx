@@ -3,32 +3,37 @@ import AddIngredientSelector from "./components/addIngredient";
 import { fetchIngredients } from "@/hooks/ingredients/list";
 import IngredientList from "./components/ingredientsList";
 import IngredientsMacros from "./components/ingredientsMacros";
+import AddStep from "./components/addStep";
+import StepsList from "./components/stepsList";
+import InputName from "./components/inputName";
 
 export default async function Page() {
   const ingredients = await fetchIngredients();
 
   return (
     <div>
-      <Input
-        placeholder="Nome (Verrà generato quanto saranno inseriti degli step)"
-        type="text"
-        className="mt-4"
-        disabled
-      />
+      <InputName />
 
-      <div className="mt-4 grid grid-cols-3 gap-4">
-        <div className="col-span-2">
+      <div className="mt-4 grid md:grid-cols-5 gap-4">
+        <div className="col-span-3">
           <IngredientList />
+          <div className="mt-4">
+            <AddIngredientSelector ingredients={ingredients} />
+          </div>
+          <div className="mt-4">
+            <StepsList />
+          </div>
+          <div className="my-4">
+            <AddStep />
+          </div>
         </div>
 
-        <div className="col-span-1">
+        <div className="col-span-2">
           <IngredientsMacros />
         </div>
       </div>
 
-      <div className="mt-4">
-        <AddIngredientSelector ingredients={ingredients} />
-      </div>
+      <div></div>
     </div>
   );
 }
