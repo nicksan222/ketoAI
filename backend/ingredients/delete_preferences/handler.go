@@ -2,8 +2,8 @@ package ingredients_deletepreferences
 
 import (
 	"context"
+	"errors"
 
-	"github.com/gofiber/fiber"
 	"github.com/nicksan222/ketoai/db"
 	"github.com/nicksan222/ketoai/preferences"
 	"go.mongodb.org/mongo-driver/bson"
@@ -17,7 +17,16 @@ func DeleteIngredientPreference(
 		return DeleteIngredientPreferenceResponse{}, err
 	}
 
-	filter := bson.D{{Key: "user_id", Value: request.UserId}}
+	// Does the record exist?
+	filter := bson.D{
+		{Key: "user_id", Value: request.UserId},
+	}
+	exists := conn.Collection(preferences.PREFERENCES_COLLECTION).FindOne(context.TODO(), filter)
+	if exists.Err() != nil {
+		return DeleteIngredientPreferenceResponse{}, exists.Err()
+	}
+
+	filter = bson.D{{Key: "user_id", Value: request.UserId}}
 	update := bson.D{
 		{
 			Key: "$pull",
@@ -34,7 +43,7 @@ func DeleteIngredientPreference(
 
 	// Check if a document was actually modified
 	if result.ModifiedCount == 0 {
-		return DeleteIngredientPreferenceResponse{}, fiber.NewError(fiber.StatusNotFound, "No ingredient preference found")
+		return DeleteIngredientPreferenceResponse{}, errors.New("No document was modified")
 	}
 
 	return DeleteIngredientPreferenceResponse{

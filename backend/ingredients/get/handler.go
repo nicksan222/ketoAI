@@ -24,7 +24,7 @@ func GetIngredient(req GetIngredientRequest) (GetIngredientResponse, error) {
 	}
 
 	var ingredient ingredients.Ingredient
-	err = conn.Collection("ingredients").FindOne(context.TODO(), bson.M{"_id": objectID}).Decode(&ingredient)
+	err = conn.Collection(ingredients.INGREDIENT_COLLECTION).FindOne(context.Background(), bson.M{"_id": objectID}).Decode(&ingredient)
 	if err != nil {
 		return GetIngredientResponse{}, err
 	}

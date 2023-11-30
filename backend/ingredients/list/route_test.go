@@ -38,10 +38,10 @@ func TestRoute(t *testing.T) {
 		},
 	}
 
-	app := fiber.New()
-	app.Get("/ingredients", ingredients_list.IngredientsListRoute)
-
 	for _, test := range tests {
+		app := fiber.New()
+		app.Get("/ingredients", ingredients_list.IngredientsListRoute)
+
 		query := fmt.Sprintf("?begins_with=%s&ends_with=%s&limit=%d", test.head.BeginsWith, test.head.EndsWith, test.head.Limit)
 		req := httptest.NewRequest("GET", "/ingredients"+query, nil)
 
@@ -51,6 +51,6 @@ func TestRoute(t *testing.T) {
 		assert.NotNil(t, resp, "Ingredients list is nil")
 		assert.Equal(t, test.resultCode, resp.StatusCode, "Status code does not match")
 
-		// Additional checks can be added here to validate the response head length or content
+		app.Shutdown()
 	}
 }

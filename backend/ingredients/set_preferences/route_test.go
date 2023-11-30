@@ -49,5 +49,7 @@ func TestSetPreference(t *testing.T) {
 		resp, err := app.Test(req, -1)
 		assert.NoError(t, err, "Failed to send request")
 		assert.Equal(t, test.resultCode, resp.StatusCode, "Status code does not match")
+		c.App().ReleaseCtx(c)
+		app.Shutdown()
 	}
 }

@@ -5,6 +5,7 @@ go 1.21.1
 require entgo.io/ent v0.12.4
 
 require (
+	github.com/KyleBanks/depth v1.2.1 // indirect
 	github.com/MicahParks/keyfunc/v2 v2.1.0 // indirect
 	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
@@ -43,7 +44,10 @@ require (
 	github.com/spf13/afero v1.10.0 // indirect
 	github.com/spf13/cast v1.5.1 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/stretchr/objx v0.5.0 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
+	github.com/swaggo/files v0.0.0-20220610200504-28940afbdbfe // indirect
+	github.com/swaggo/swag v1.8.1 // indirect
 	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
 	github.com/xdg-go/scram v1.1.2 // indirect
 	github.com/xdg-go/stringprep v1.0.4 // indirect
@@ -53,7 +57,9 @@ require (
 	go.uber.org/multierr v1.9.0 // indirect
 	golang.org/x/crypto v0.13.0 // indirect
 	golang.org/x/exp v0.0.0-20230905200255-921286631fa9 // indirect
+	golang.org/x/net v0.15.0 // indirect
 	golang.org/x/sync v0.3.0 // indirect
+	golang.org/x/tools v0.13.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/square/go-jose.v2 v2.6.0 // indirect
@@ -69,7 +75,6 @@ require (
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
 	github.com/auth0/go-jwt-middleware/v2 v2.1.0
 	github.com/go-openapi/inflect v0.19.0 // indirect
-	github.com/gofiber/fiber v1.14.6
 	github.com/gofiber/fiber/v2 v2.50.0 // indirect
 	github.com/google/go-cmp v0.5.9 // indirect
 	github.com/google/uuid v1.4.0 // indirect
@@ -84,6 +89,7 @@ require (
 	github.com/rs/zerolog v1.31.0
 	github.com/spf13/viper v1.17.0
 	github.com/stretchr/testify v1.8.4
+	github.com/swaggo/fiber-swagger v1.3.0
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.50.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect

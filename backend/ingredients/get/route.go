@@ -2,12 +2,17 @@ package ingredients_get
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/utils"
 )
 
 func IngredientGetRoute(c *fiber.Ctx) error {
 	// Getting the ID
-	id := utils.CopyString(c.Params("ingredient_id"))
+	id := c.Params("ingredient_id")
+
+	if id == "" {
+		return c.Status(400).JSON(fiber.Map{
+			"error": "Missing ingredient ID",
+		})
+	}
 
 	// Fetching the ingredient
 	ingredient, err := GetIngredient(GetIngredientRequest{IngredientId: id})

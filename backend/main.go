@@ -77,7 +77,7 @@ func buildServer(env config.EnvVars) *fiber.App {
 	app.Get("/ingredients/preferences/list", ingredients_getpreferences.IngredientsGetPreferencesRoute)
 
 	app.Get("/recipes", recipes.ListRecipesToApproveForUserHandler)
-	app.Post("/recipes", recipes.CreateRecipeHandler)
+	// app.Post("/recipes", recipes_create.CreateRecipeHandler)
 
 	return app
 }

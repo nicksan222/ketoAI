@@ -63,5 +63,7 @@ func TestIngredientPreferencesList(t *testing.T) {
 		assert.NoError(t, err, "Failed to list ingredients")
 		assert.NotNil(t, resp, "Ingredients list is nil")
 		assert.Equal(t, test.resultCode, resp.StatusCode, "Status code does not match")
+		c.App().ReleaseCtx(c)
+		app.Shutdown()
 	}
 }

@@ -1,10 +1,19 @@
 package ingredients_deletepreferences
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/utils"
+)
 
 func IngredientsDeletePreferencesRoute(c *fiber.Ctx) error {
-	userId := c.Locals("user_id").(string)
-	ingredientId := c.Params("ingredient_id")
+	userId, ok := c.Locals("user_id").(string)
+	if !ok {
+		return c.Status(401).JSON(fiber.Map{
+			"error": "User ID not found",
+		})
+	}
+
+	ingredientId := utils.CopyString(c.Params("ingredient_id"))
 
 	if ingredientId == "" {
 		return c.Status(400).JSON(fiber.Map{
