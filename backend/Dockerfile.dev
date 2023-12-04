@@ -4,6 +4,7 @@ WORKDIR /usr/src/backend
 
 # Auto-reloading!
 RUN go install github.com/cosmtrek/air@latest
+RUN go install github.com/go-delve/delve/cmd/dlv@latest
 
 # Copy the script into the image
 COPY wait-for-it.sh /usr/src/backend/wait-for-it.sh

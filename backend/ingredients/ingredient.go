@@ -16,9 +16,9 @@ const (
 )
 
 type Ingredient struct {
-	ID                 primitive.ObjectID `json:"id" bson:"_id,omitempty"`
-	Name               string             `json:"name" bson:"name"`
-	QuanityMeasurement string             `json:"quantity_measurement" bson:"quantity_measurement"`
+	ID                  primitive.ObjectID `json:"id" bson:"_id,omitempty"`
+	Name                string             `json:"name" bson:"name"`
+	QuantityMeasurement string             `json:"quantity_measurement" bson:"quantity_measurement"`
 
 	Fat              float64 `json:"fat" bson:"fat"`
 	Protein          float64 `json:"protein" bson:"protein"`

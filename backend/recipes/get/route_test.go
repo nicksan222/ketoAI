@@ -7,7 +7,6 @@ import (
 	"github.com/gofiber/fiber/v2"
 	recipes_get "github.com/nicksan222/ketoai/recipes/get"
 	"github.com/stretchr/testify/assert"
-	"github.com/valyala/fasthttp"
 )
 
 type RecipeGetTest struct {
@@ -38,14 +37,11 @@ func TestRouteGetRecipe(t *testing.T) {
 
 	app := fiber.New()
 
-	c := app.AcquireCtx(&fasthttp.RequestCtx{})
-	c.Locals("user_id", user_id)
-
-	app.Get("/recipes/:recipe_id", func(_ *fiber.Ctx) error {
+	app.Get("/recipes/:recipe_id", func(c *fiber.Ctx) error {
+		c.Locals("user_id", user_id)
 		return recipes_get.RecipeGetRoute(c)
 	})
 
-	defer app.ReleaseCtx(c)
 	defer app.Shutdown()
 
 	for _, test := range tests {

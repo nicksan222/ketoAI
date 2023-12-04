@@ -26,13 +26,13 @@ func createMockRecipe(t *testing.T) primitive.ObjectID {
 		Ingredients: []recipes.RecipeIngredient{
 			{
 				Ingredient: ingredients.Ingredient{
-					Name:               "Ingredient 1",
-					QuanityMeasurement: "cup",
-					Fat:                1,
-					Protein:            1,
-					Carbs:              1,
-					IsMainIngredient:   true,
-					Approved:           true,
+					Name:                "Ingredient 1",
+					QuantityMeasurement: "cup",
+					Fat:                 1,
+					Protein:             1,
+					Carbs:               1,
+					IsMainIngredient:    true,
+					Approved:            true,
 				},
 				Quantity: 1,
 				Unit:     "cup",
@@ -72,13 +72,13 @@ func createMockRecipeWithOwner(t *testing.T) (primitive.ObjectID, string) {
 		Ingredients: []recipes.RecipeIngredient{
 			{
 				Ingredient: ingredients.Ingredient{
-					Name:               "Ingredient 1",
-					QuanityMeasurement: "cup",
-					Fat:                1,
-					Protein:            1,
-					Carbs:              1,
-					IsMainIngredient:   true,
-					Approved:           true,
+					Name:                "Ingredient 1",
+					QuantityMeasurement: "cup",
+					Fat:                 1,
+					Protein:             1,
+					Carbs:               1,
+					IsMainIngredient:    true,
+					Approved:            true,
 				},
 				Quantity: 1,
 				Unit:     "cup",
