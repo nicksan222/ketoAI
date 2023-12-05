@@ -13,16 +13,17 @@ import (
 func createMockIngredientPreference(t *testing.T) {
 	ingredients_setpreferences.SetIngredientPreferences(ingredients_setpreferences.SetIngredientPreferencesRequest{
 		UserId:        "test_user_delete_existing_ingredient_preference",
-		IngredientIds: []string{"test_ingredient"},
+		IngredientIds: []string{"test_ingredient_delete_existing_ingredient_preference"},
 	})
 }
 
 func TestDeleteExistingIngredientPreference(t *testing.T) {
+	t.Parallel()
 	createMockIngredientPreference(t)
 
 	request := ingredients_deletepreferences.DeleteIngredientPreferenceRequest{
 		UserId:       "test_user_delete_existing_ingredient_preference",
-		IngredientId: "test_ingredient",
+		IngredientId: "test_ingredient_delete_existing_ingredient_preference",
 	}
 
 	response, err := ingredients_deletepreferences.DeleteIngredientPreference(request)

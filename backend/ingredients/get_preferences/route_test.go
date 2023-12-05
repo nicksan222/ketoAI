@@ -9,7 +9,6 @@ import (
 	ingredients_getpreferences "github.com/nicksan222/ketoai/ingredients/get_preferences"
 	ingredients_setpreferences "github.com/nicksan222/ketoai/ingredients/set_preferences"
 	"github.com/stretchr/testify/assert"
-	"github.com/valyala/fasthttp"
 )
 
 type IngredientPreferencesListTest struct {
@@ -28,6 +27,7 @@ func createMockUserWithPreferences(t *testing.T, userId string, ingredientIds []
 }
 
 func TestIngredientPreferencesList(t *testing.T) {
+	t.Parallel()
 	ingredients, err := ingredients_getpreferences.GetAllIngredients(context.Background())
 	assert.NoError(t, err, "Failed to fetch all ingredients")
 
@@ -50,10 +50,8 @@ func TestIngredientPreferencesList(t *testing.T) {
 	for _, test := range tests {
 		app := fiber.New()
 
-		c := app.AcquireCtx(&fasthttp.RequestCtx{})
-		c.Locals("user_id", test.UserId)
-
-		app.Get("/ingredients/favorites", func(_ *fiber.Ctx) error {
+		app.Get("/ingredients/favorites", func(c *fiber.Ctx) error {
+			c.Locals("user_id", test.UserId)
 			return ingredients_getpreferences.IngredientsGetPreferencesRoute(c)
 		})
 
@@ -63,7 +61,5 @@ func TestIngredientPreferencesList(t *testing.T) {
 		assert.NoError(t, err, "Failed to list ingredients")
 		assert.NotNil(t, resp, "Ingredients list is nil")
 		assert.Equal(t, test.resultCode, resp.StatusCode, "Status code does not match")
-		c.App().ReleaseCtx(c)
-		app.Shutdown()
 	}
 }

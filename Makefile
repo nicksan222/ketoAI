@@ -22,6 +22,9 @@ dev: ## Start the Docker containers in the background
 test-backend:
 	@docker compose run --rm backend go test ./...
 
+test-backend-coverage:
+	@docker compose run --rm backend go test ./... -cover
+
 kill: ## Stop and remove the Docker containers
 	@docker compose down
 

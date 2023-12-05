@@ -6,9 +6,9 @@ import (
 
 	"github.com/gofiber/fiber/v2/log"
 	"github.com/nicksan222/ketoai/config"
-	"github.com/nicksan222/ketoai/db"
 	"github.com/nicksan222/ketoai/recipes"
 	recipes_get "github.com/nicksan222/ketoai/recipes/get"
+	"github.com/nicksan222/ketoai/utils/db"
 	"github.com/sashabaranov/go-openai"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )

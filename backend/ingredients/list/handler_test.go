@@ -9,6 +9,7 @@ import (
 )
 
 func TestListIngredientsRequest(t *testing.T) {
+	t.Parallel()
 	// Test valid request
 	validRequest := ingredients_list.ListIngredientsRequest{
 		BeginsWith: "",

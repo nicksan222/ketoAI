@@ -4,14 +4,15 @@ import (
 	"context"
 	"testing"
 
-	"github.com/nicksan222/ketoai/db"
 	ingredients_getpreferences "github.com/nicksan222/ketoai/ingredients/get_preferences"
 	"github.com/nicksan222/ketoai/preferences"
+	"github.com/nicksan222/ketoai/utils/db"
 	"github.com/stretchr/testify/assert"
 	"go.mongodb.org/mongo-driver/bson"
 )
 
 func TestFetchNotExistingPreferences(t *testing.T) {
+	t.Parallel()
 	request := ingredients_getpreferences.GetIngredientPreferencesRequest{
 		UserId: "test_user_non_existing_fetch_ingredient_preferences",
 	}

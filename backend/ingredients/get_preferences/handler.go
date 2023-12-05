@@ -3,9 +3,9 @@ package ingredients_getpreferences
 import (
 	"context"
 
-	"github.com/nicksan222/ketoai/db"
 	"github.com/nicksan222/ketoai/ingredients"
 	"github.com/nicksan222/ketoai/preferences"
+	"github.com/nicksan222/ketoai/utils/db"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"

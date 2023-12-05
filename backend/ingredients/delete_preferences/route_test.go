@@ -8,7 +8,6 @@ import (
 	ingredients_deletepreferences "github.com/nicksan222/ketoai/ingredients/delete_preferences"
 	ingredients_setpreferences "github.com/nicksan222/ketoai/ingredients/set_preferences"
 	"github.com/stretchr/testify/assert"
-	"github.com/valyala/fasthttp"
 )
 
 type IngredientPreferencesDeleteTest struct {
@@ -27,7 +26,7 @@ func createMockUserWithPreference(t *testing.T, userId string, ingredientId stri
 }
 
 func TestIngredientPreferencesDelete(t *testing.T) {
-	t.Skip()
+	t.Parallel()
 	testIngredientId := "test_ingredient"
 
 	// Manually creating a user with a single ingredient preference
@@ -54,11 +53,9 @@ func TestIngredientPreferencesDelete(t *testing.T) {
 	for _, test := range tests {
 		app := fiber.New()
 
-		c := app.AcquireCtx(&fasthttp.RequestCtx{})
-		c.Locals("user_id", test.UserId)
-		c.Params("ingredient_id", test.IngredientId)
-
-		app.Delete("/ingredients/favorites/:ingredient_id", func(_ *fiber.Ctx) error {
+		app.Delete("/ingredients/favorites/:ingredient_id", func(c *fiber.Ctx) error {
+			c.Locals("user_id", test.UserId)
+			c.Params("ingredient_id", test.IngredientId)
 			return ingredients_deletepreferences.IngredientsDeletePreferencesRoute(c)
 		})
 
@@ -68,7 +65,5 @@ func TestIngredientPreferencesDelete(t *testing.T) {
 		assert.NoError(t, err, "Failed to delete ingredient preference")
 		assert.NotNil(t, resp, "Response is nil")
 		assert.Equal(t, test.resultCode, resp.StatusCode, "Status code does not match")
-		c.App().ReleaseCtx(c)
-		app.Shutdown()
 	}
 }

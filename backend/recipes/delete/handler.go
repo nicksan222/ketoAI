@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"github.com/nicksan222/ketoai/db"
+	"github.com/nicksan222/ketoai/utils/db"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )

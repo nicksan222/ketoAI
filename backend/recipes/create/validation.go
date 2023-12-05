@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"image/png"
 
-	"github.com/nicksan222/ketoai/db"
 	"github.com/nicksan222/ketoai/recipes"
+	"github.com/nicksan222/ketoai/utils/db"
 	"github.com/sashabaranov/go-openai"
 	"go.mongodb.org/mongo-driver/bson"
 )

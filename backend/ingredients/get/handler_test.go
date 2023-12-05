@@ -9,8 +9,9 @@ import (
 )
 
 func TestExistsIngredient(t *testing.T) {
+	t.Parallel()
 	ingredient := ingredients.Ingredient{
-		Name: "test_ingredient",
+		Name: "test_ingredient_exists",
 	}
 
 	ingredientId := insertMockIngredient(t, ingredient)

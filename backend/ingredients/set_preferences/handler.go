@@ -4,8 +4,8 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/nicksan222/ketoai/db"
 	"github.com/nicksan222/ketoai/preferences"
+	"github.com/nicksan222/ketoai/utils/db"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"

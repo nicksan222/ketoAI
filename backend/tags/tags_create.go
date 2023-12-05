@@ -7,7 +7,7 @@ import (
 
 	"go.mongodb.org/mongo-driver/bson/primitive" // Required for handling MongoDB ObjectID
 
-	"github.com/nicksan222/ketoai/db"
+	"github.com/nicksan222/ketoai/utils/db"
 )
 
 type CreateTagRequest struct {

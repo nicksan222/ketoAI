@@ -1,17 +1,24 @@
+# Use golang latest as the base image
 FROM golang:latest as builder
 
+# Set the working directory in the container
 WORKDIR /usr/src/backend
 
-# Auto-reloading!
-RUN go install github.com/cosmtrek/air@latest
-RUN go install github.com/go-delve/delve/cmd/dlv@latest
+# Copy the go.mod and go.sum files first to leverage Docker cache
+COPY go.mod go.sum ./
+# Download dependencies (will be cached unless go.mod or go.sum change)
+RUN go mod download
+RUN go mod tidy
 
-# Copy the script into the image
-COPY wait-for-it.sh /usr/src/backend/wait-for-it.sh
-# Make the script executable
+# Install development tools
+RUN go install github.com/cosmtrek/air@latest \
+    && go install github.com/go-delve/delve/cmd/dlv@latest
+
+# Copy the rest of the application source code
+COPY . .
+
+# Make the wait-for-it script executable
 RUN chmod +x /usr/src/backend/wait-for-it.sh
 
+# Environment variables
 ENV IS_DEV="true"
-
-COPY . .
-RUN go mod tidy
