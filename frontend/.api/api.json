@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "apis": [
+    {
+      "identifier": "backend",
+      "source": "../backend/docs/openapi.yaml",
+      "integrity": "sha512-oqol5+98j5AoggpftH0q4Pqrx132OODJmP+FogCEcaLMbzsD5axEJBoznJzmTk7uowURMg+MHK2/1lpt3lRNfA==",
+      "installerVersion": "6.1.1"
+    }
+  ]
+}

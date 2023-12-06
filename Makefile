@@ -45,3 +45,14 @@ logs-seed: ## Show and follow the logs for the seed container
 
 logs-mongodb: ## Show and follow the logs for the mongodb container
 	@docker-compose logs -f mongodb
+
+frontend-shell:
+	@docker-compose exec frontend /bin/sh
+
+gen-api-client:
+	cd backend
+	@make all
+	cd ..
+	cd frontend
+	@make generate-api
+	cd ..

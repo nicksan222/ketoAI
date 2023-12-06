@@ -39,7 +39,8 @@ services:
       context: ./frontend
       dockerfile: Dockerfile.dev
     volumes:
-      - ./frontend:/usr/src/frontend
+      - ./frontend:/app
+      - /app/node_modules
     environment:
       - NEXT_PUBLIC_BACKEND_URL=http://backend:4000
     ports:
