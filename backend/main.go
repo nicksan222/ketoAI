@@ -1,13 +1,17 @@
 package main
 
 import (
-	"fmt"
+	"strings"
 
+	"github.com/gofiber/contrib/swagger"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/helmet"
 	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/gofiber/fiber/v2/middleware/monitor"
+	"github.com/gofiber/fiber/v2/middleware/skip"
 	"github.com/nicksan222/ketoai/config"
+	_ "github.com/nicksan222/ketoai/docs"
 	ingredients_deletepreferences "github.com/nicksan222/ketoai/ingredients/delete_preferences"
 	ingredients_get "github.com/nicksan222/ketoai/ingredients/get"
 	ingredients_getpreferences "github.com/nicksan222/ketoai/ingredients/get_preferences"
@@ -17,6 +21,17 @@ import (
 	"github.com/nicksan222/ketoai/pkg/shutdown"
 	"github.com/nicksan222/ketoai/recipes"
 )
+
+//	@title			KetoAI API
+//	@version		1.0
+//	@description	This is the KetoAI API server.
+//	@termsOfService	http://swagger.io/terms/
+//	@contact.name	API Support
+//	@contact.email	nicksan222@icloud.com
+//	@license.name	Apache 2.0
+//	@license.url	http://www.apache.org/licenses/LICENSE-2.0.html
+//	@host			backend:4000
+//	@BasePath		/
 
 func main() {
 	// load config
@@ -57,18 +72,19 @@ func buildServer(env config.EnvVars) *fiber.App {
 	app.Use(cors.New())
 	app.Use(logger.New())
 	app.Use(helmet.New())
-
-	app.Use(func(c *fiber.Ctx) error {
-		fmt.Printf("Requested path: %s\n", c.OriginalURL())
-		return c.Next()
-	})
-
-	/**
-	Using a middleware function to check if there is an API key in the request header
-	*/
+	app.Get("/metrics", monitor.New())
 
 	authMiddleware := auth.NewAuthMiddleware(env)
-	app.Use(authMiddleware.ValidateToken)
+	app.Use(skip.New(authMiddleware.ValidateToken, func(ctx *fiber.Ctx) bool {
+		// Does the url start with /swagger ?
+		return strings.Split(ctx.Path(), "/")[1] == "swagger"
+	}))
+
+	app.Use(swagger.New(swagger.Config{
+		BasePath: "/swagger/v1/",
+		FilePath: "./docs/swagger.json",
+		Path:     "docs",
+	}))
 
 	app.Get("/ingredients/:ingredient_id", ingredients_get.IngredientGetRoute)
 	app.Get("/ingredients", ingredients_list.IngredientsListRoute)

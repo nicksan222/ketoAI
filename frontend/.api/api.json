@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "apis": [
+    {
+      "identifier": "petstore",
+      "source": "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore.json",
+      "integrity": "sha512-efqytu5RCCQrBvAO8yMdsGOILGo7O8ZCpye9f7c2Ovp+9230B5a+gxfDrgfO3zL/iJDV90BPhBqwxSH+X+NUmg==",
+      "installerVersion": "6.1.1"
+    },
+    {
+      "identifier": "backend",
+      "source": "../backend/docs/openapi.yaml",
+      "integrity": "sha512-g673av30LfJ7dwIs32bkt3V0vpfQ4ncNZVJaATetj7WX2dNKSFEM9fJM1MTDC6WiMQFYayADfwGJi4wPxxRayA==",
+      "installerVersion": "6.1.1"
+    }
+  ]
+}

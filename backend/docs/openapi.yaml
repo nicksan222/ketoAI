@@ -1,0 +1,77 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: nicksan222@icloud.com
+    name: API Support
+  description: This is the KetoAI API server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: KetoAI API
+  version: "1.0"
+paths:
+  "/ingredients/{ingredient_id}":
+    get:
+      description: Retrieves the ingredient by its ID.
+      parameters:
+        - description: Ingredient ID
+          in: path
+          name: ingredient_id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ingredient found and returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ingredients_get.GetIngredientResponse"
+        "400":
+          description: Bad Request - Missing ingredient ID.
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          description: Not Found - Ingredient not found.
+          content:
+            application/json:
+              schema:
+                type: object
+      summary: Retrieve a single ingredient
+      tags:
+        - ingredients
+servers:
+  - url: //backend:4000
+components:
+  schemas:
+    ingredients.Ingredient:
+      properties:
+        approved:
+          description: Users can insert custom ingredients, but must be approved first by
+            admins
+          type: boolean
+        carbs:
+          type: number
+        fat:
+          type: number
+        id:
+          type: string
+        is_main_ingredient:
+          description: Main ingredients are used in the calculation of the macros of a
+            recipe
+          type: boolean
+        name:
+          type: string
+        protein:
+          type: number
+        quantity_measurement:
+          type: string
+      type: object
+    ingredients_get.GetIngredientResponse:
+      properties:
+        ingredient:
+          $ref: "#/components/schemas/ingredients.Ingredient"
+      type: object

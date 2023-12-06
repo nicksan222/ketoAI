@@ -1,0 +1,106 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is the KetoAI API server.",
+        "title": "KetoAI API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support",
+            "email": "nicksan222@icloud.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "backend:4000",
+    "basePath": "/",
+    "paths": {
+        "/ingredients/{ingredient_id}": {
+            "get": {
+                "description": "Retrieves the ingredient by its ID.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ingredients"
+                ],
+                "summary": "Retrieve a single ingredient",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Ingredient ID",
+                        "name": "ingredient_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ingredient found and returned successfully.",
+                        "schema": {
+                            "$ref": "#/definitions/ingredients_get.GetIngredientResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request - Missing ingredient ID.",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found - Ingredient not found.",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ingredients.Ingredient": {
+            "type": "object",
+            "properties": {
+                "approved": {
+                    "description": "Users can insert custom ingredients, but must be approved first by admins",
+                    "type": "boolean"
+                },
+                "carbs": {
+                    "type": "number"
+                },
+                "fat": {
+                    "type": "number"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "is_main_ingredient": {
+                    "description": "Main ingredients are used in the calculation of the macros of a recipe",
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "protein": {
+                    "type": "number"
+                },
+                "quantity_measurement": {
+                    "type": "string"
+                }
+            }
+        },
+        "ingredients_get.GetIngredientResponse": {
+            "type": "object",
+            "properties": {
+                "ingredient": {
+                    "$ref": "#/definitions/ingredients.Ingredient"
+                }
+            }
+        }
+    }
+}
