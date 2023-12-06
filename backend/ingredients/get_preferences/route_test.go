@@ -1,15 +1,12 @@
 package ingredients_getpreferences_test
 
 import (
-	"context"
 	"net/http/httptest"
 	"testing"
 
 	"github.com/gofiber/fiber/v2"
 	ingredients_getpreferences "github.com/nicksan222/ketoai/ingredients/get_preferences"
-	ingredients_setpreferences "github.com/nicksan222/ketoai/ingredients/set_preferences"
 	"github.com/stretchr/testify/assert"
-	"github.com/valyala/fasthttp"
 )
 
 type IngredientPreferencesListTest struct {
@@ -18,21 +15,17 @@ type IngredientPreferencesListTest struct {
 	resultLen  int
 }
 
-func createMockUserWithPreferences(t *testing.T, userId string, ingredientIds []string) {
-	_, err := ingredients_setpreferences.SetIngredientPreferences(ingredients_setpreferences.SetIngredientPreferencesRequest{
-		UserId:        userId,
-		IngredientIds: ingredientIds,
-	})
-
-	assert.NoError(t, err, "Failed to set ingredient preferences")
-}
-
 func TestIngredientPreferencesList(t *testing.T) {
-	ingredients, err := ingredients_getpreferences.GetAllIngredients(context.Background())
-	assert.NoError(t, err, "Failed to fetch all ingredients")
+	ingredients := []string{
+		"test_ingredient_1",
+		"test_ingredient_2",
+		"test_ingredient_3",
+		"test_ingredient_4",
+		"test_ingredient_5",
+	}
 
 	// Manually creating test_user_existing with 10 ingredients
-	createMockUserWithPreferences(t, "test_user_existing_fetch_preferences", ingredients[0:10])
+	createMockUserWithPreferences(t, "test_user_existing_fetch_preferences", ingredients[0:4])
 
 	tests := []IngredientPreferencesListTest{
 		{
@@ -43,17 +36,15 @@ func TestIngredientPreferencesList(t *testing.T) {
 		{
 			UserId:     "test_user_existing_fetch_preferences",
 			resultCode: 200,
-			resultLen:  10,
+			resultLen:  4,
 		},
 	}
 
 	for _, test := range tests {
 		app := fiber.New()
 
-		c := app.AcquireCtx(&fasthttp.RequestCtx{})
-		c.Locals("user_id", test.UserId)
-
-		app.Get("/ingredients/favorites", func(_ *fiber.Ctx) error {
+		app.Get("/ingredients/favorites", func(c *fiber.Ctx) error {
+			c.Locals("user_id", test.UserId)
 			return ingredients_getpreferences.IngredientsGetPreferencesRoute(c)
 		})
 
@@ -63,7 +54,5 @@ func TestIngredientPreferencesList(t *testing.T) {
 		assert.NoError(t, err, "Failed to list ingredients")
 		assert.NotNil(t, resp, "Ingredients list is nil")
 		assert.Equal(t, test.resultCode, resp.StatusCode, "Status code does not match")
-		c.App().ReleaseCtx(c)
-		app.Shutdown()
 	}
 }

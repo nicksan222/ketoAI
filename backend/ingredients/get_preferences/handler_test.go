@@ -30,3 +30,4 @@ func TestFetchNotExistingPreferences(t *testing.T) {
 
 	db.Collection(preferences.PREFERENCES_COLLECTION).DeleteOne(context.Background(), bson.M{"user_id": request.UserId})
 }
+

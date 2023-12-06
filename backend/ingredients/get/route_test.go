@@ -16,6 +16,7 @@ func TestGetIngredient(t *testing.T) {
 		Name: "test_ingredient",
 	}
 	mockIngredientId := insertMockIngredient(t, mockIngredient)
+	defer deleteMockIngredient(t, mockIngredientId)
 
 	tests := []struct {
 		ingredientId string
@@ -41,8 +42,4 @@ func TestGetIngredient(t *testing.T) {
 		assert.NoError(t, err, "Failed to test request")
 		assert.Equal(t, test.resultCode, resp.StatusCode, "Unexpected status code")
 	}
-
-	deleteMockIngredient(t, mockIngredientId)
-
-	app.Shutdown()
 }
