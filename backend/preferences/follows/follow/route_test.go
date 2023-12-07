@@ -9,19 +9,20 @@ import (
 )
 
 type NewFollowTest struct {
-	UserId     string
-	ToFollow   string
-	resultCode int
-	res        follow_add_follow.NewFollowResponse
+	UserId      string
+	ToFollow    string
+	ExpectError bool
+	resultCode  int
+	res         follow_add_follow.NewFollowResponse
 }
 
 var NewFollowTests = []NewFollowTest{
 	{
 		UserId:     "test_add_follow_user_route",
 		ToFollow:   "test_add_follow_user_route",
-		resultCode: 200,
+		resultCode: 400,
+		ExpectError: true,
 		res: follow_add_follow.NewFollowResponse{
-			FollowId: "test_add_follow_user_route",
 		},
 	},
 	{
@@ -40,12 +41,6 @@ var NewFollowTests = []NewFollowTest{
 			FollowId: "test_add_follow_user_route_3",
 		},
 	},
-	{
-		UserId:     "test_add_follow_user_route",
-		ToFollow:   "test_add_follow_user_route",
-		resultCode: 404,
-		res:        follow_add_follow.NewFollowResponse{},
-	},
 }
 
 func TestNewFollowHandler(t *testing.T) {
@@ -59,10 +54,12 @@ func TestNewFollowHandler(t *testing.T) {
 			UserId:   test.UserId,
 			ToFollow: test.ToFollow,
 		})
-		assert.NoError(t, err, "Error calling handler")
 
-		assert.Equal(t, follow_add_follow.NewFollowResponse{
-			FollowId: test.ToFollow,
-		}, res, "Response incorrect")
+		if test.ExpectError {
+			assert.Error(t, err, "Expected error but got none")
+		} else {
+			assert.NoError(t, err, "Unexpected error")
+			assert.Equal(t, test.res, res, "Response incorrect")
+		}
 	}
 }
