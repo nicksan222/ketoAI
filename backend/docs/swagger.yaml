@@ -235,4 +235,70 @@ paths:
       summary: Delete a user's ingredient preference
       tags:
       - ingredients
+  /recipes/{recipe_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Deletes a recipe for a user based on their ID and the recipe ID.
+      parameters:
+      - description: Recipe ID
+        in: path
+        name: recipe_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Recipe deleted successfully.
+          schema:
+            type: object
+        "400":
+          description: Bad Request - Missing recipe ID.
+          schema:
+            type: object
+        "401":
+          description: Unauthorized - User ID not found.
+          schema:
+            type: object
+        "404":
+          description: Not Found - Recipe or user not found.
+          schema:
+            type: object
+      summary: Delete a user's recipe
+      tags:
+      - recipes
+    get:
+      consumes:
+      - application/json
+      description: Retrieves the details of a specific recipe for a user based on
+        their ID and the recipe ID.
+      parameters:
+      - description: Recipe ID
+        in: path
+        name: recipe_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Recipe retrieved successfully.
+          schema:
+            type: object
+        "400":
+          description: Bad Request - Missing recipe ID.
+          schema:
+            type: object
+        "401":
+          description: Unauthorized - User ID not found.
+          schema:
+            type: object
+        "404":
+          description: Not Found - Recipe or user not found.
+          schema:
+            type: object
+      summary: Get a specific recipe
+      tags:
+      - recipes
 swagger: "2.0"
