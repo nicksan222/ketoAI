@@ -1,6 +1,6 @@
 import { Ingredient } from "@/types/ingredient";
 import { fetcher } from "@/utils/fetcher";
-import {} from "@api/backend"
+import api from "@api/backend"
 
 interface IngredientsResponse {
   ingredients: Ingredient[];
