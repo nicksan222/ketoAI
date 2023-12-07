@@ -8,6 +8,7 @@ import (
 )
 
 func TestIngredientsSetPreference(t *testing.T) {
+	t.Parallel()
 	request := ingredients_setpreferences.SetIngredientPreferencesRequest{
 		UserId:        "test_user",
 		IngredientIds: []string{"test_ingredient"},

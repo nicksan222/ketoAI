@@ -12,6 +12,4 @@ convert-openapi:
 	@echo "Conversion complete. OpenAPI 3.0+ spec generated at $(OPENAPI_FILE)"
 
 # Default target
-all: convert-openapi
-
-.PHONY: convert-openapi all
+all: generate-swagger convert-openapi

@@ -1,7 +1,24 @@
 import type { FromSchema } from 'json-schema-to-ts';
 import * as schemas from './schemas';
 
+export type DeleteIngredientsPreferencesIngredientIdMetadataParam = FromSchema<typeof schemas.DeleteIngredientsPreferencesIngredientId.metadata>;
+export type DeleteIngredientsPreferencesIngredientIdResponse200 = FromSchema<typeof schemas.DeleteIngredientsPreferencesIngredientId.response['200']>;
+export type DeleteIngredientsPreferencesIngredientIdResponse400 = FromSchema<typeof schemas.DeleteIngredientsPreferencesIngredientId.response['400']>;
+export type DeleteIngredientsPreferencesIngredientIdResponse401 = FromSchema<typeof schemas.DeleteIngredientsPreferencesIngredientId.response['401']>;
+export type DeleteIngredientsPreferencesIngredientIdResponse404 = FromSchema<typeof schemas.DeleteIngredientsPreferencesIngredientId.response['404']>;
 export type GetIngredientsIngredientIdMetadataParam = FromSchema<typeof schemas.GetIngredientsIngredientId.metadata>;
 export type GetIngredientsIngredientIdResponse200 = FromSchema<typeof schemas.GetIngredientsIngredientId.response['200']>;
 export type GetIngredientsIngredientIdResponse400 = FromSchema<typeof schemas.GetIngredientsIngredientId.response['400']>;
 export type GetIngredientsIngredientIdResponse404 = FromSchema<typeof schemas.GetIngredientsIngredientId.response['404']>;
+export type GetIngredientsMetadataParam = FromSchema<typeof schemas.GetIngredients.metadata>;
+export type GetIngredientsPreferencesResponse200 = FromSchema<typeof schemas.GetIngredientsPreferences.response['200']>;
+export type GetIngredientsPreferencesResponse401 = FromSchema<typeof schemas.GetIngredientsPreferences.response['401']>;
+export type GetIngredientsPreferencesResponse404 = FromSchema<typeof schemas.GetIngredientsPreferences.response['404']>;
+export type GetIngredientsResponse200 = FromSchema<typeof schemas.GetIngredients.response['200']>;
+export type GetIngredientsResponse400 = FromSchema<typeof schemas.GetIngredients.response['400']>;
+export type GetIngredientsResponse404 = FromSchema<typeof schemas.GetIngredients.response['404']>;
+export type PostIngredientsPreferencesBodyParam = FromSchema<typeof schemas.PostIngredientsPreferences.body>;
+export type PostIngredientsPreferencesResponse200 = FromSchema<typeof schemas.PostIngredientsPreferences.response['200']>;
+export type PostIngredientsPreferencesResponse400 = FromSchema<typeof schemas.PostIngredientsPreferences.response['400']>;
+export type PostIngredientsPreferencesResponse401 = FromSchema<typeof schemas.PostIngredientsPreferences.response['401']>;
+export type PostIngredientsPreferencesResponse404 = FromSchema<typeof schemas.PostIngredientsPreferences.response['404']>;

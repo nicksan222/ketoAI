@@ -23,6 +23,202 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/ingredients": {
+            "get": {
+                "description": "Retrieves a list of ingredients based on beginning and ending characters and a limit on the number of results.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ingredients"
+                ],
+                "summary": "List ingredients",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Filter ingredients that begin with these characters",
+                        "name": "begins_with",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Filter ingredients that end with these characters",
+                        "name": "ends_with",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Limit the number of ingredients returned",
+                        "name": "limit",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of ingredients returned successfully.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ingredients_list.ListIngredientsResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request - Invalid query parameters.",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found - Ingredients not found.",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/ingredients/preferences": {
+            "get": {
+                "description": "Retrieves the list of ingredient preferences for a user based on their ID.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ingredients"
+                ],
+                "summary": "Retrieve a user's ingredient preferences",
+                "responses": {
+                    "200": {
+                        "description": "List of ingredient preferences returned successfully.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ingredients_getpreferences.GetIngredientPreferencesResponse"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized - User ID not found.",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found - Ingredient preferences not found.",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Sets or updates the ingredient preferences for a user based on their ID.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ingredients"
+                ],
+                "summary": "Set a user's ingredient preferences",
+                "parameters": [
+                    {
+                        "description": "Ingredient Preferences Request",
+                        "name": "preference",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ingredients_setpreferences.SetIngredientPreferencesRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ingredient preferences set or updated successfully.",
+                        "schema": {
+                            "$ref": "#/definitions/ingredients_setpreferences.SetIngredientPreferencesResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request - Invalid request body or parameters.",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized - User ID not found.",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found - Unable to set or update preferences.",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/ingredients/preferences/{ingredient_id}": {
+            "delete": {
+                "description": "Deletes the preference of a specific ingredient for a user based on their ID and the ingredient ID.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ingredients"
+                ],
+                "summary": "Delete a user's ingredient preference",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Ingredient ID",
+                        "name": "ingredient_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ingredient preference deleted successfully.",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request - Missing ingredient ID.",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized - User ID not found.",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found - Ingredient or preference not found.",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
         "/ingredients/{ingredient_id}": {
             "get": {
                 "description": "Retrieves the ingredient by its ID.",
@@ -107,6 +303,56 @@ const docTemplate = `{
                     "$ref": "#/definitions/ingredients.Ingredient"
                 }
             }
+        },
+        "ingredients_getpreferences.GetIngredientPreferencesResponse": {
+            "type": "object",
+            "properties": {
+                "ingredients": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "user_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "ingredients_list.ListIngredientsResponse": {
+            "type": "object",
+            "properties": {
+                "ingredients": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ingredients.Ingredient"
+                    }
+                }
+            }
+        },
+        "ingredients_setpreferences.SetIngredientPreferencesRequest": {
+            "type": "object",
+            "properties": {
+                "ingredient_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "user_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "ingredients_setpreferences.SetIngredientPreferencesResponse": {
+            "type": "object",
+            "properties": {
+                "ingredient_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
         }
     }
 }`
@@ -114,7 +360,7 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "backend:4000",
+	Host:             "http://backend:4000",
 	BasePath:         "/",
 	Schemes:          []string{},
 	Title:            "KetoAI API",

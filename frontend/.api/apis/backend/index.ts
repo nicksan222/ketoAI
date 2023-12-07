@@ -74,6 +74,18 @@ class SDK {
   }
 
   /**
+   * Retrieves a list of ingredients based on beginning and ending characters and a limit on
+   * the number of results.
+   *
+   * @summary List ingredients
+   * @throws FetchError<400, types.GetIngredientsResponse400> Bad Request - Invalid query parameters.
+   * @throws FetchError<404, types.GetIngredientsResponse404> Not Found - Ingredients not found.
+   */
+  getIngredients(metadata?: types.GetIngredientsMetadataParam): Promise<FetchResponse<200, types.GetIngredientsResponse200>> {
+    return this.core.fetch('/ingredients', 'get', metadata);
+  }
+
+  /**
    * Retrieves the ingredient by its ID.
    *
    * @summary Retrieve a single ingredient
@@ -83,6 +95,42 @@ class SDK {
   getIngredientsIngredient_id(metadata: types.GetIngredientsIngredientIdMetadataParam): Promise<FetchResponse<200, types.GetIngredientsIngredientIdResponse200>> {
     return this.core.fetch('/ingredients/{ingredient_id}', 'get', metadata);
   }
+
+  /**
+   * Retrieves the list of ingredient preferences for a user based on their ID.
+   *
+   * @summary Retrieve a user's ingredient preferences
+   * @throws FetchError<401, types.GetIngredientsPreferencesResponse401> Unauthorized - User ID not found.
+   * @throws FetchError<404, types.GetIngredientsPreferencesResponse404> Not Found - Ingredient preferences not found.
+   */
+  getIngredientsPreferences(): Promise<FetchResponse<200, types.GetIngredientsPreferencesResponse200>> {
+    return this.core.fetch('/ingredients/preferences', 'get');
+  }
+
+  /**
+   * Sets or updates the ingredient preferences for a user based on their ID.
+   *
+   * @summary Set a user's ingredient preferences
+   * @throws FetchError<400, types.PostIngredientsPreferencesResponse400> Bad Request - Invalid request body or parameters.
+   * @throws FetchError<401, types.PostIngredientsPreferencesResponse401> Unauthorized - User ID not found.
+   * @throws FetchError<404, types.PostIngredientsPreferencesResponse404> Not Found - Unable to set or update preferences.
+   */
+  postIngredientsPreferences(body: types.PostIngredientsPreferencesBodyParam): Promise<FetchResponse<200, types.PostIngredientsPreferencesResponse200>> {
+    return this.core.fetch('/ingredients/preferences', 'post', body);
+  }
+
+  /**
+   * Deletes the preference of a specific ingredient for a user based on their ID and the
+   * ingredient ID.
+   *
+   * @summary Delete a user's ingredient preference
+   * @throws FetchError<400, types.DeleteIngredientsPreferencesIngredientIdResponse400> Bad Request - Missing ingredient ID.
+   * @throws FetchError<401, types.DeleteIngredientsPreferencesIngredientIdResponse401> Unauthorized - User ID not found.
+   * @throws FetchError<404, types.DeleteIngredientsPreferencesIngredientIdResponse404> Not Found - Ingredient or preference not found.
+   */
+  deleteIngredientsPreferencesIngredient_id(metadata: types.DeleteIngredientsPreferencesIngredientIdMetadataParam): Promise<FetchResponse<200, types.DeleteIngredientsPreferencesIngredientIdResponse200>> {
+    return this.core.fetch('/ingredients/preferences/{ingredient_id}', 'delete', metadata);
+  }
 }
 
 const createSDK = (() => { return new SDK(); })()
@@ -90,4 +138,4 @@ const createSDK = (() => { return new SDK(); })()
 
 export default createSDK;
 
-export type { GetIngredientsIngredientIdMetadataParam, GetIngredientsIngredientIdResponse200, GetIngredientsIngredientIdResponse400, GetIngredientsIngredientIdResponse404 } from './types';
+export type { DeleteIngredientsPreferencesIngredientIdMetadataParam, DeleteIngredientsPreferencesIngredientIdResponse200, DeleteIngredientsPreferencesIngredientIdResponse400, DeleteIngredientsPreferencesIngredientIdResponse401, DeleteIngredientsPreferencesIngredientIdResponse404, GetIngredientsIngredientIdMetadataParam, GetIngredientsIngredientIdResponse200, GetIngredientsIngredientIdResponse400, GetIngredientsIngredientIdResponse404, GetIngredientsMetadataParam, GetIngredientsPreferencesResponse200, GetIngredientsPreferencesResponse401, GetIngredientsPreferencesResponse404, GetIngredientsResponse200, GetIngredientsResponse400, GetIngredientsResponse404, PostIngredientsPreferencesBodyParam, PostIngredientsPreferencesResponse200, PostIngredientsPreferencesResponse400, PostIngredientsPreferencesResponse401, PostIngredientsPreferencesResponse404 } from './types';

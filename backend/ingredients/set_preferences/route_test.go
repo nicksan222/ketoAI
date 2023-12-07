@@ -18,6 +18,7 @@ type SetPreferenceTest struct {
 }
 
 func TestSetPreference(t *testing.T) {
+	t.Parallel()
 	tests := []SetPreferenceTest{
 		{
 			UserId:     "test_user_non_existing_set_preference",

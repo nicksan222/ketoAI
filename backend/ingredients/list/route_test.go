@@ -17,6 +17,7 @@ type ListIngredientsTest struct {
 }
 
 func TestRoute(t *testing.T) {
+	t.Parallel()
 	tests := []ListIngredientsTest{
 		{
 			head: ingredients_list.ListIngredientsRequest{

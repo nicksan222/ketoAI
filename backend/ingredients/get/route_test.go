@@ -11,9 +11,10 @@ import (
 )
 
 func TestGetIngredient(t *testing.T) {
+	t.Parallel()
 	// Inserting a mock ingredient
 	mockIngredient := ingredients.Ingredient{
-		Name: "test_ingredient",
+		Name: "test_ingredient_exists_route",
 	}
 	mockIngredientId := insertMockIngredient(t, mockIngredient)
 	defer deleteMockIngredient(t, mockIngredientId)

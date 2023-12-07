@@ -30,7 +30,7 @@ import (
 //	@contact.email	nicksan222@icloud.com
 //	@license.name	Apache 2.0
 //	@license.url	http://www.apache.org/licenses/LICENSE-2.0.html
-//	@host			backend:4000
+//	@host			http://backend:4000
 //	@BasePath		/
 
 func main() {
