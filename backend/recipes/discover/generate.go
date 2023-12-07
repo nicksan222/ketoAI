@@ -19,5 +19,5 @@ package recipes_discover
 func GenerateDiscoverRecipes(
 	userId string,
 ) {
-
+	// Will take in the user's preferences, history, following users, and following tags
 }
