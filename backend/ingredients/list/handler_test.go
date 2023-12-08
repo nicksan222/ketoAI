@@ -9,6 +9,9 @@ import (
 )
 
 func TestListIngredientsRequest(t *testing.T) {
+	ids := insertMockIngredients(10, "test_list_ingredients_handler", t)
+	defer deleteMockIngredients(ids, t)
+
 	// Test valid request
 	validRequest := ingredients_list.ListIngredientsRequest{
 		BeginsWith: "",

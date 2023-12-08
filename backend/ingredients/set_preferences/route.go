@@ -15,13 +15,7 @@ import "github.com/gofiber/fiber/v2"
 // @Failure 404 {object} interface{} "Not Found - Unable to set or update preferences."
 // @Router /ingredients/preferences [post]
 func IngredientsSetPreferencesRoute(c *fiber.Ctx) error {
-	userId, ok := c.Locals("user_id").(string)
-
-	if !ok {
-		return c.Status(401).JSON(fiber.Map{
-			"error": "User ID not found",
-		})
-	}
+	userId := c.Locals("user_id").(string)
 
 	// Adding to preferences
 	request, err := ParseSetIngredientPreferencesRequest(c.Body())

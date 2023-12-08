@@ -27,7 +27,7 @@ func createMockUserWithPreference(t *testing.T, userId string, ingredientId stri
 
 func TestIngredientPreferencesDelete(t *testing.T) {
 	t.Parallel()
-	testIngredientId := "test_ingredient"
+	testIngredientId := "test_ingredient_preference_delete"
 
 	// Manually creating a user with a single ingredient preference
 	createMockUserWithPreference(t, "test_user_existing_delete_preference", testIngredientId)
