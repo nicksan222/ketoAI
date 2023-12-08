@@ -405,7 +405,7 @@
   },
   "servers": [
     {
-      "url": "//http://backend:4000"
+      "url": "//backend:4000"
     }
   ],
   "components": {

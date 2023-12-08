@@ -60,7 +60,7 @@ definitions:
           type: string
         type: array
     type: object
-host: http://backend:4000
+host: backend:4000
 info:
   contact:
     email: nicksan222@icloud.com

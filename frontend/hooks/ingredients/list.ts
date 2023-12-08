@@ -6,7 +6,7 @@ import api from "@api/backend";
 export const fetchIngredients = async (): Promise<Ingredient[]> => {
   const sessionToken = await getSessionToken();
   api.auth(sessionToken);
-  api.server(process.env.NEXT_PUBLIC_BACKEND_URL ?? "")
+  api.server("https://jsonplaceholder.typicode.com")
 
   console.info(api)
 

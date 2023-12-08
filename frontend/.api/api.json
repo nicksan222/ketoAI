@@ -4,7 +4,7 @@
     {
       "identifier": "backend",
       "source": "../backend/docs/openapi.yaml",
-      "integrity": "sha512-oqol5+98j5AoggpftH0q4Pqrx132OODJmP+FogCEcaLMbzsD5axEJBoznJzmTk7uowURMg+MHK2/1lpt3lRNfA==",
+      "integrity": "sha512-wcmTbJ16zsAeq+WEQ3KzdP7n7x+EGSX82p3jTW3FXMBl4A4eU0EA8SkDeAIi1/TszHLaVOnXaAffZ4XFeaqvvQ==",
       "installerVersion": "6.1.1"
     }
   ]
